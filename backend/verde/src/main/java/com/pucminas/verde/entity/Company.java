@@ -10,19 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.validator.constraints.br.CPF;
-
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class User {
+public class Company {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,13 +28,11 @@ public class User {
 	private String name;
 	private String email;
 	private String password;
-	@CPF
-	private String cpf;
 	@OneToOne
-	private Endereco enderecoUser;
+	private Endereco enderecoCompany;
+	@CNPJ
+	private String cnpj;
 	@OneToMany
 	private List<Event> listaEventos = new ArrayList<Event>();
-	
-	
 
 }
