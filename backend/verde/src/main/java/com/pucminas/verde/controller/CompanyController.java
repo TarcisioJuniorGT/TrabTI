@@ -10,22 +10,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pucminas.verde.dto.UserDto;
-import com.pucminas.verde.dto.UserFormDto;
-import com.pucminas.verde.service.UserService;
+import com.pucminas.verde.dto.CompanyDto;
+import com.pucminas.verde.dto.CompanyFormDto;
+import com.pucminas.verde.service.CompanyService;
 
 @RestController
-@RequestMapping("/cadastro/user")
-public class UserController {
+@RequestMapping("/cadastro/company")
+public class CompanyController {
 	
 	@Autowired
-	private UserService userService;
+	private CompanyService companyService;
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<UserDto> save (@Valid @RequestBody UserFormDto userFormDto){
-		return this.userService.save(userFormDto);
+	public ResponseEntity<CompanyDto> save (@Valid @RequestBody CompanyFormDto companyFormDto){
+		return this.companyService.save(companyFormDto);
 	}
-	
 
 }
